@@ -22,7 +22,7 @@ public class BilgisayarOyuncu  extends game.Oyuncu {
         
         
 
-Random r=new Random(); //random sınıfı
+    Random r=new Random(); //random sınıfı
     int a=r.nextInt(super.kartListesi().size());
     while(super.kartListesi().get(a).isKartKullanildiMi() == true)
     {

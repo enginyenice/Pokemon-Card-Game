@@ -20,6 +20,7 @@ public abstract class Oyuncu {
     }
     
     public abstract Pokemon kartSec();
+    
     public int getOyuncuID() {
         return oyuncuID;
     }

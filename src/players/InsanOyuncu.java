@@ -11,7 +11,7 @@ public class InsanOyuncu extends game.Oyuncu {
         public InsanOyuncu(int type){
         this.type = type;
     }
-        @Override
+    @Override
     public Pokemon kartSec() {
        
         return super.kartListesi().get(3);//BOŞ

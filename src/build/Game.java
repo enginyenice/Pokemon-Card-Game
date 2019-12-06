@@ -30,6 +30,7 @@ public class Game extends javax.swing.JFrame {
         jPanel3.setVisible(false);
 
     }
+
     public void ScoreBoard() {
         if (gameProperties.getGameType() == 0) {
             playerOneName.setText(gameProperties.getComputer().getOyuncuAdi());
@@ -38,7 +39,7 @@ public class Game extends javax.swing.JFrame {
         } else if (gameProperties.getGameType() == 1) {
             playerOneName.setText(gameProperties.getPlayer().getOyuncuAdi());
             playerOneScore.setText(Integer.toString(gameProperties.getPlayer().getSkor()));
-            System.out.println("Yeni Oyun Başlıyor.\nOyuncu Adı: "+ gameProperties.getPlayer().getOyuncuAdi());
+            System.out.println("Yeni Oyun Başlıyor.\nOyuncu Adı: " + gameProperties.getPlayer().getOyuncuAdi());
         }
 
         playerTwoName.setText(gameProperties.getBot().getOyuncuAdi());
@@ -58,6 +59,7 @@ public class Game extends javax.swing.JFrame {
         }
 
     }
+
     public void raundScoreBoard() {
         if (gameProperties.getGameType() == 0) {
             playerOneName.setText(gameProperties.getComputer().getOyuncuAdi());
@@ -70,6 +72,7 @@ public class Game extends javax.swing.JFrame {
         playerTwoName.setText(gameProperties.getBot().getOyuncuAdi());
         playerTwoScore.setText(Integer.toString(gameProperties.getBot().getSkor()));
     }
+
     public void oyun(Pokemon kart) {
 
         if (gameProperties.getGameType() == 1) {
@@ -80,7 +83,7 @@ public class Game extends javax.swing.JFrame {
                 gameBoard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cards/Cardback.png")));
                 kartBirHasar = kart.HasarPuaniGoster();
                 kart.setKartKullanildiMi(true);
-                System.out.println("[Player]\nKart:=>" + kart.getPokemonAdi() + "\nHasar=>" + kartBirHasar +  "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi()+"\n");
+                System.out.println("[Player]\nKart:=>" + kart.getPokemonAdi() + "\nHasar=>" + kartBirHasar + "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi() + "\n");
                 sira = 1;
 
                 oyun(gameProperties.bot.kartSec());
@@ -100,7 +103,7 @@ public class Game extends javax.swing.JFrame {
                 kartIkiHasar = kart.HasarPuaniGoster();
                 kart.setKartKullanildiMi(true);
 
-                System.out.println("[Bilgisayar 1]\nKart:=>" + kart.getPokemonAdi() + "\nHasar=>" + kartIkiHasar +   "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi()+"\n");
+                System.out.println("[Bilgisayar 1]\nKart:=>" + kart.getPokemonAdi() + "\nHasar=>" + kartIkiHasar + "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi() + "\n");
                 System.out.println("---------RAUND SONU---------");
                 switch (kartNo) {
                     case 0:
@@ -124,14 +127,13 @@ public class Game extends javax.swing.JFrame {
 
                 sira = 3;
 
-                
                 Timer saat = new Timer();
                 TimerTask gorev;
                 gorev = new TimerTask() {
                     @Override
                     public void run() {
                         sira = 0;
-                        
+
                         gameBoard1.setIcon(new javax.swing.ImageIcon(getClass().getResource(secilen.get(1).isImage())));
                         gameBoard2.setIcon(new javax.swing.ImageIcon(getClass().getResource(secilen.get(0).isImage())));
                         saat.cancel();
@@ -166,7 +168,7 @@ public class Game extends javax.swing.JFrame {
                 gameBoard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cards/Cardback.png")));
                 kartBirHasar = kart.HasarPuaniGoster();
                 kart.setKartKullanildiMi(true);
-                System.out.println("[Bilgisayar 2]\nKart=>" + kart.getPokemonAdi()+ "\nHasar=>" + kartBirHasar + "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi()+"\n");
+                System.out.println("[Bilgisayar 2]\nKart=>" + kart.getPokemonAdi() + "\nHasar=>" + kartBirHasar + "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi() + "\n");
                 int kartNo = 99;
                 for (int i = 0; i < gameProperties.getBot().kartListesi().size(); i++) {
                     if (kart.getPokemonAdi().equals(gameProperties.getComputer().kartListesi().get(i).getPokemonAdi())) {
@@ -208,7 +210,7 @@ public class Game extends javax.swing.JFrame {
                 kartIkiHasar = kart.HasarPuaniGoster();
                 kart.setKartKullanildiMi(true);
 
-                System.out.println("[Bilgisayar 1]\nKart=>" + kart.getPokemonAdi()+ "\nHasar=>" + kartIkiHasar +  "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi()+"\n");
+                System.out.println("[Bilgisayar 1]\nKart=>" + kart.getPokemonAdi() + "\nHasar=>" + kartIkiHasar + "\nKart Kullanıldı mı?=>" + kart.isKartKullanildiMi() + "\n");
                 System.out.println("---------RAUND SONU---------");
                 switch (kartNo) {
                     case 0:
@@ -230,7 +232,6 @@ public class Game extends javax.swing.JFrame {
                         break;
                 }
 
-                
                 sira = 3;
                 Timer saat = new Timer();
                 TimerTask gorev;
@@ -267,6 +268,7 @@ public class Game extends javax.swing.JFrame {
 
         }
     }
+
     public void DestedenCek() {
 
         if (gameProperties.getGameType() == 0) {
@@ -325,6 +327,7 @@ public class Game extends javax.swing.JFrame {
             oyunBitir();
         }
     }
+
     public void oyunBitir() {
         botNextRaundBtn.setEnabled(false);
         String messageText = "";
@@ -360,10 +363,9 @@ public class Game extends javax.swing.JFrame {
         showMessageDialog(null, "Oyun bitti.\nTekrar oynamak için lütfen <[Yeniden Oyna]> tuşuna basınız...");
         RaundStatus.setText("");
         messageText = "";
-        
-        
 
     }
+
     public void kartlariDagit() {
 
         if (gameProperties.getGameType() == 0) {
@@ -394,15 +396,15 @@ public class Game extends javax.swing.JFrame {
                 player1.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(0).isImage()))); // NOI18N
                 player2.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(1).isImage()))); // NOI18N
                 player3.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(2).isImage()))); // NOI18N
-               if (destedenCekmeSayisi == 1) {
-                player4.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(3).isImage()))); // NOI18N
-               }
-                              if (destedenCekmeSayisi > 0) {
-                player4.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(3).isImage()))); // NOI18N
-               }
-                               if (destedenCekmeSayisi > 1) {
-                player5.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(4).isImage()))); // NOI18N
-                               }
+                if (destedenCekmeSayisi == 1) {
+                    player4.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(3).isImage()))); // NOI18N
+                }
+                if (destedenCekmeSayisi > 0) {
+                    player4.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(3).isImage()))); // NOI18N
+                }
+                if (destedenCekmeSayisi > 1) {
+                    player5.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getComputer().kartListesi().get(4).isImage()))); // NOI18N
+                }
             }
         } else if (debug == false) {
 
@@ -436,13 +438,15 @@ public class Game extends javax.swing.JFrame {
             player1.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getPlayer().kartListesi().get(0).isImage()))); // NOI18N
             player2.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getPlayer().kartListesi().get(1).isImage()))); // NOI18N
             player3.setIcon(new javax.swing.ImageIcon(getClass().getResource(gameProperties.getPlayer().kartListesi().get(2).isImage()))); // NOI18N
-            
+
         }
     }
+
     public void isDebug() {
         debug = !debug;
         kartlariDagit();
     }
+
     public void restart() {
         gameProperties.restart();
         secilen.removeAll(secilen);
@@ -478,6 +482,7 @@ public class Game extends javax.swing.JFrame {
         jPanel2.setVisible(false);
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1313,7 +1318,7 @@ public class Game extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         gameProperties.getPlayer().setOyuncuAdi(jTextField1.getText());
-        
+
         ScoreBoard();
         kartlariDagit();
         jPanel3.setVisible(false);
